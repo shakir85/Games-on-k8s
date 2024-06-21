@@ -3,6 +3,11 @@ Various web-based games deployed on Kubernetes.
 
 The containers are deployed using straightforward deployment manifests and are served by ClusterIP type services. External traffic to the cluster is handled by an Nginx Ingress controller, which is exposed through a routable IP address provided by the MetalLB load balancer.
 
+## Requirements
+
+- MetalLB for bare-metal Load Balancing. Installation manifests included in `manifests/metallb` for reference.
+- Nginx Ingress controller (Helm installation provided below).
+
 ## Deployment
 Create the namespace
 ```
