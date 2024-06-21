@@ -1,0 +1,27 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flappybird-service
+  namespace: games-ns
+spec:
+  selector:
+    game: flappybird
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: snake-service
+  namespace: games-ns
+spec:
+  selector:
+    game: snake
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
