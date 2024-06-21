@@ -2,13 +2,33 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: nginx-hpa
+  name: flappybird-game
   namespace: games-ns
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: flappybird-deployment
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: snake-game
+  namespace: games-ns
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: snake-deployment
   minReplicas: 2
   maxReplicas: 10
   metrics:
