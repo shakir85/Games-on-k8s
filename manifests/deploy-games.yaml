@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flappybird-deployment
+  namespace: games-ns
+spec:
+  selector:
+    matchLabels:
+      game: flappybird
+  template:
+    metadata:
+      labels:
+       game: flappybird
+    spec:
+      containers:
+      - name: flappybird-container
+        image: shakir85/flappybird:latest
+        resources:
+          limits:
+            cpu: "250m"
+            memory: "512Mi"
+        ports:
+        - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: snake-deployment
+  namespace: games-ns
+spec:
+  selector:
+    matchLabels:
+      game: snake
+  template:
+    metadata:
+      labels:
+        game: snake
+    spec:
+      containers:
+      - name: snake-container
+        image: shakir85/snake:latest
+        resources:
+          limits:
+            cpu: "250m"
+            memory: "512Mi"
+        ports:
+        - containerPort: 80
