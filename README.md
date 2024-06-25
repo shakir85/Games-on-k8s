@@ -1,5 +1,5 @@
 # Games on K8s
-Various web-based games deployed on Kubernetes. 
+The famous FlappyBird and Snake games, deployed on a bare metal K8s using MetalLB and Nginx Ingress.
 
 The containers are deployed using straightforward deployment manifests and are served by ClusterIP type services. External traffic to the cluster is handled by an Nginx Ingress controller, which is exposed through a routable IP address provided by the MetalLB load balancer.
 
