@@ -22,7 +22,7 @@ helm install gamesingress ingress-nginx/ingress-nginx -n games-ns --values helm/
 
 Apply the manifests
 ```
-kubectl apply -f deploy-games.yaml -f services.yaml -f ingress-resources.yaml  -f hpa.yaml
+kubectl apply -f namespace.yaml -f deploy-games.yaml -f services.yaml -f ingress-resources.yaml  -f hpa.yaml
 ```
 
 Retrieve the Ingress `EXTERNAL-IP` address provided by MetalLB
